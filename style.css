@@ -1,0 +1,153 @@
+.section-dark{
+  padding:3.5rem 0;
+}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.6rem;
+}
+
+.service-card{
+  background:linear-gradient(180deg,#1c222d,#171c25);
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--border-soft);
+}
+
+.service-card img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+}
+
+.service-card h3{
+  padding:1rem 1rem .3rem;
+}
+
+.service-card p,
+.service-card ul{
+  padding:0 1rem 1rem;
+  color:var(--text-muted);
+  font-size:.95rem;
+}
+
+.team-section{
+  padding:3rem 0;
+}
+
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1.6rem;
+}
+
+.team-card{
+  background:var(--bg-card);
+  border-radius:14px;
+  padding:1rem;
+  text-align:center;
+  border:1px solid var(--border-soft);
+}
+
+.team-card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:10px;
+  margin-bottom:.7rem;
+}
+
+.team-card span{
+  color:var(--text-muted);
+  font-size:.85rem;
+}
+
+.testimonials-section{
+  background:#0b0f15;
+  padding:3rem 0;
+}
+
+.testimonials-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1.4rem;
+}
+
+.testimonials-grid blockquote{
+  background:var(--bg-card);
+  padding:1.3rem;
+  border-radius:10px;
+  border:1px solid var(--border-soft);
+  color:var(--text-muted);
+}
+
+.faq-section details{
+  margin-bottom:1rem;
+  border:1px solid var(--border-soft);
+  border-radius:8px;
+  padding:.8rem 1rem;
+  background:var(--bg-card);
+}
+
+.faq-section summary{
+  cursor:pointer;
+  font-weight:600;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+}
+
+.booking-form{
+  display:flex;
+  flex-direction:column;
+  gap:.7rem;
+}
+
+.booking-form input,
+.booking-form select{
+  padding:.6rem;
+  border-radius:6px;
+  border:1px solid var(--border-soft);
+  background:#0e1117;
+  color:var(--text-main);
+}
+
+.whatsapp-float{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:54px;
+  height:54px;
+  background:#25D366;
+  color:#03140a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  text-decoration:none;
+  font-size:1.5rem;
+  box-shadow:0 10px 25px rgba(0,0,0,.5);
+}
+
+/* Animaciones */
+
+.reveal{
+  opacity:0;
+  transform:translateY(25px);
+  transition:.8s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+@media(max-width:800px){
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+}
