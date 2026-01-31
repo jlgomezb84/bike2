@@ -2,32 +2,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const productos = [
     {
-      id: 1,
-      nombre: "Aero Road Performance",
-      precio: "6.200.000 COP",
-      imagen: "https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      tag: "AERO"
+      id:1,
+      nombre:"Aero Road Performance",
+      precio:"6.200.000 COP",
+      imagen:"https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      tag:"AERO"
     },
     {
-      id: 2,
-      nombre: "Triathlon Carbon Pro",
-      precio: "7.450.000 COP",
-      imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      tag: "TRIATLÓN"
+      id:2,
+      nombre:"Triathlon Carbon Pro",
+      precio:"7.450.000 COP",
+      imagen:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      tag:"TRIATLÓN"
     },
     {
-      id: 3,
-      nombre: "Carbon Race Bike",
-      precio: "5.900.000 COP",
-      imagen: "https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      tag: "CARRETERA"
+      id:3,
+      nombre:"Carbon Race Bike",
+      precio:"5.900.000 COP",
+      imagen:"https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      tag:"CARRETERA"
     },
     {
-      id: 4,
-      nombre: "Time Trial Aero Bike",
-      precio: "8.100.000 COP",
-      imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      tag: "TIME TRIAL"
+      id:4,
+      nombre:"Time Trial Aero Bike",
+      precio:"8.100.000 COP",
+      imagen:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      tag:"TIME TRIAL"
     }
   ];
 
@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
     productos.forEach(p => {
 
       const card = document.createElement("a");
-
       card.href = `compra.html?id=${p.id}`;
       card.className = "producto-card";
       card.style.textDecoration = "none";
@@ -65,47 +64,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* Animaciones */
-
   const reveals = document.querySelectorAll(".reveal");
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
       if(e.isIntersecting){
         e.target.classList.add("visible");
       }
     });
   },{threshold:0.15});
 
-  reveals.forEach(el => observer.observe(el));
-
-  /* Formulario simple */
+  reveals.forEach(el=>observer.observe(el));
 
   const form = document.getElementById("bookingForm");
-  const msg = document.getElementById("msgForm");
+  const msg  = document.getElementById("msgForm");
 
   if(form){
-
-    form.addEventListener("submit", e => {
-
+    form.addEventListener("submit", e=>{
       e.preventDefault();
 
       const data = Object.fromEntries(new FormData(form));
-
       const registros =
         JSON.parse(localStorage.getItem("bikeBookings") || "[]");
 
-      registros.push({
-        ...data,
-        fecha: new Date().toISOString()
-      });
+      registros.push({...data,fecha:new Date().toISOString()});
+      localStorage.setItem("bikeBookings",JSON.stringify(registros));
 
-      localStorage.setItem("bikeBookings", JSON.stringify(registros));
-
-      msg.textContent = "Solicitud enviada. Te contactaremos pronto.";
+      msg.textContent="Solicitud enviada. Te contactaremos pronto.";
       form.reset();
     });
-
   }
 
 });
